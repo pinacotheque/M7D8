@@ -1,17 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{ useEffect, useState} from 'react';
+import { Navbar } from 'react-bootstrap';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import NavBar from './components/Navbar/Navbar'
+import Home from './components/Home/Home'
+
+
 
 function App() {
+
+  const [search, setSearch] = useState('')
   return (
+
+    <Router>
+
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-       
-      </header>
+      <NavBar/>
+      <Route
+            path="/" exact
+            render={(routerProps) => <Home {...routerProps}  search={search} />}
+          />
+      <Route path="/" exact render={ (routerProps) => <Home {...routerProps } search={search}/> }/>
     </div>
+    </Router>
   );
 }
 
