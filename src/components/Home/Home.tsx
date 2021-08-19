@@ -31,6 +31,7 @@ const Home = ({history , location} : RouteComponentProps  ) => {
                 console.log('musics',musics)
                 if(response.ok){
                     setMusic(musics)
+                    setSearch('')
                     await console.log('state music',music)
                 } else{
                     console.log('fetch error')
@@ -52,7 +53,7 @@ const Home = ({history , location} : RouteComponentProps  ) => {
         <div className='d-flex flex-wrap'>
 
         { music.length >0 ? music.map ((artist) =>
-            <SingleCard artist= {artist}/> 
+            <SingleCard  artist= {artist}/> 
         )
       : 
         <h5>This looks empty.</h5> }
