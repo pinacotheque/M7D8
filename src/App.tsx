@@ -1,5 +1,5 @@
 import React,{ useEffect, useState} from 'react';
-import { Navbar } from 'react-bootstrap';
+import { Container, Navbar } from 'react-bootstrap';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -10,19 +10,19 @@ import Home from './components/Home/Home'
 
 function App() {
 
-  const [search, setSearch] = useState('')
   return (
 
     <Router>
+    <Container>
 
-    <div className="App">
       <NavBar/>
       <Route
             path="/" exact
-            render={(routerProps) => <Home {...routerProps}  search={search} />}
+            render={(routerProps) => <Home {...routerProps}  />}
           />
-      <Route path="/" exact render={ (routerProps) => <Home {...routerProps } search={search}/> }/>
-    </div>
+    </Container>
+    
+    
     </Router>
   );
 }
